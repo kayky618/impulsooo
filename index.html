@@ -179,7 +179,7 @@ function gerar(precoInicial, incremento, max, servico){
   return html;
 }
 
-/* ------- Seguidores Brasileiros c/ Garantia (NOVOS PREÇOS) ------- */
+/* ------- Seguidores Brasileiros c/ Garantia (NOVOS PREÇOS ATÉ 3000, de 100 em 100) ------- */
 function gerarBrasileirosGarantia(){
   /* Edite aqui se precisar alterar as faixas ou os preços */
   const faixas = [
@@ -187,7 +187,32 @@ function gerarBrasileirosGarantia(){
     {q:200, p:3.50},
     {q:300, p:4.50},
     {q:400, p:5.50},
-    {q:500, p:6.50}
+    {q:500, p:6.50},
+    {q:600, p:7.50},
+    {q:700, p:8.50},
+    {q:800, p:9.50},
+    {q:900, p:10.50},
+    {q:1000, p:11.50},
+    {q:1100, p:12.50},
+    {q:1200, p:13.50},
+    {q:1300, p:14.50},
+    {q:1400, p:15.50},
+    {q:1500, p:16.50},
+    {q:1600, p:17.50},
+    {q:1700, p:18.50},
+    {q:1800, p:19.50},
+    {q:1900, p:20.50},
+    {q:2000, p:21.50},
+    {q:2100, p:22.50},
+    {q:2200, p:23.50},
+    {q:2300, p:24.50},
+    {q:2400, p:25.50},
+    {q:2500, p:26.50},
+    {q:2600, p:27.50},
+    {q:2700, p:28.50},
+    {q:2800, p:29.50},
+    {q:2900, p:30.50},
+    {q:3000, p:31.50}
   ];
   let html = '';
   faixas.forEach(f => {
@@ -196,6 +221,8 @@ function gerarBrasileirosGarantia(){
              </button><br>`;
   });
   return html;
+}
+;
 }
 
 /* ------- Seguidores Mundial Sem Garantia ------- */
