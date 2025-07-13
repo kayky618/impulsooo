@@ -4,94 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Impulso Insta</title>
+
   <style>
-    body {
-      background: #1a1a1a;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    /* --------- ESTILO GERAL --------- */
+    body{
+      background:#1a1a1a;
+      color:#fff;
+      font-family:Arial,Helvetica,sans-serif;
+      margin:0;
+      padding:0
     }
-    header {
-      background: #b50000;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
+    header{
+      background:#b50000;
+      padding:1rem;
+      text-align:center;
+      font-size:1.8rem;
+      font-weight:700
     }
-    .category {
-      border: 1px solid #b50000;
-      margin: 1rem;
-      border-radius: 8px;
-      overflow: hidden;
+
+    /* --------- CATEGORIAS --------- */
+    .category{
+      border:1px solid #b50000;
+      margin:1rem;
+      border-radius:8px;
+      overflow:hidden
     }
-    .category button {
-      width: 100%;
-      background: #b50000;
-      color: #fff;
-      padding: 0.8rem;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      font-weight: bold;
+    .category button{
+      width:100%;
+      background:#b50000;
+      color:#fff;
+      padding:.8rem;
+      border:none;
+      cursor:pointer;
+      text-align:left;
+      font-weight:700
     }
-    .category-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      background: #2a2a2a;
+    .category-content{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+      background:#2a2a2a
     }
-    .category-content.open {
-      max-height: 1000px;
-      padding: 1rem;
+    .category-content.open{
+      max-height:1000px;
+      padding:1rem
     }
-    button.add-btn {
-      background: #e60000;
-      border: none;
-      color: #fff;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-bottom: 5px;
+
+    /* --------- BOTÕES & CARRINHO --------- */
+    button.add-btn{
+      background:#e60000;
+      border:none;
+      color:#fff;
+      padding:.4rem .8rem;
+      border-radius:4px;
+      cursor:pointer;
+      margin-bottom:5px
     }
-    #cart {
-      margin: 1rem;
-      background: #222;
-      padding: 1rem;
-      border-radius: 8px;
-      border: 2px solid #b50000;
+    #cart{
+      margin:1rem;
+      background:#222;
+      padding:1rem;
+      border-radius:8px;
+      border:2px solid #b50000
     }
-    #cart ul {
-      list-style: none;
-      padding: 0;
+    #cart ul{list-style:none;padding:0}
+    #cart li{margin-bottom:.5rem}
+    #order-form input,
+    #order-form button{
+      width:100%;
+      padding:.5rem;
+      margin-top:.5rem
     }
-    #cart li {
-      margin-bottom: 0.5rem;
+
+    /* --------- TELA DE LOGIN --------- */
+    #login-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.8);
+      display:flex;
+      justify-content:center;
+      align-items:center
     }
-    #order-form input, #order-form button {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-    }
-    #login-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #login-box {
-      background: #222;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
+    #login-box{
+      background:#222;
+      padding:1rem;
+      border-radius:8px;
+      text-align:center
     }
   </style>
 </head>
+
 <body>
 <header>Impulso Insta</header>
 
+<!-- ========= LOGIN ========= -->
 <div id="login-overlay">
   <div id="login-box">
     <h2>Login</h2>
@@ -100,21 +106,51 @@
   </div>
 </div>
 
+<!-- ========= CONTEÚDO PRINCIPAL ========= -->
 <main>
-  <div class="category"><button class="cat-toggle">Curtidas Instagram</button><div class="category-content" id="cat-insta"></div></div>
-  <div class="category"><button class="cat-toggle">Curtidas TikTok</button><div class="category-content" id="cat-tiktok"></div></div>
-  <div class="category"><button class="cat-toggle">Seguidores Brasileiros</button><div class="category-content" id="cat-br"></div></div>
-  <div class="category"><button class="cat-toggle">Seguidores Mundial com Garantia</button><div class="category-content" id="cat-mundial"></div></div>
-  <div class="category"><button class="cat-toggle">Seguidores Mundial Sem Garantia</button><div class="category-content" id="cat-sem"></div></div>
-  <div class="category"><button class="cat-toggle">Views TikTok</button><div class="category-content" id="cat-views"></div></div>
-  <div class="category"><button class="cat-toggle">Seguidores TikTok</button><div class="category-content" id="cat-tiktok-seguidores"></div></div>
+  <div class="category">
+    <button class="cat-toggle">Curtidas Instagram</button>
+    <div class="category-content" id="cat-insta"></div>
+  </div>
 
+  <div class="category">
+    <button class="cat-toggle">Curtidas TikTok</button>
+    <div class="category-content" id="cat-tiktok"></div>
+  </div>
+
+  <div class="category">
+    <button class="cat-toggle">Seguidores Brasileiros <strong>com Garantia</strong></button>
+    <div class="category-content" id="cat-br-garantia"></div>
+  </div>
+
+  <div class="category">
+    <button class="cat-toggle">Seguidores Mundial com Garantia</button>
+    <div class="category-content" id="cat-mundial"></div>
+  </div>
+
+  <div class="category">
+    <button class="cat-toggle">Seguidores Mundial Sem Garantia</button>
+    <div class="category-content" id="cat-sem"></div>
+  </div>
+
+  <div class="category">
+    <button class="cat-toggle">Views TikTok</button>
+    <div class="category-content" id="cat-views"></div>
+  </div>
+
+  <div class="category">
+    <button class="cat-toggle">Seguidores TikTok</button>
+    <div class="category-content" id="cat-tiktok-seguidores"></div>
+  </div>
+
+  <!-- --------- CARRINHO --------- -->
   <section id="cart">
     <h3>Carrinho</h3>
     <ul id="cart-list"></ul>
-    <div id="cart-total">Total: R$ 0,00</div>
+    <div id="cart-total">Total: R$ 0,00</div>
   </section>
 
+  <!-- --------- FORMULÁRIO DE FINALIZAÇÃO --------- -->
   <form id="order-form">
     <input type="text" id="cliente-nome" placeholder="Nome" readonly>
     <button type="submit">Enviar Pedido</button>
@@ -122,110 +158,150 @@
 </main>
 
 <script>
-function gerar(preco, incremento, max, servico) {
-  let lista = "";
-  for(let q = 100, p = preco; q <= max; q += 50, p += incremento) {
-    lista += `<button class='add-btn' data-servico="${servico}" data-qtd="${q}" data-preco="${p.toFixed(2)}">Adicionar ao Carrinho - ${q} por R$ ${p.toFixed(2)}</button><br>`;
+/* ======================================================
+   FUNÇÕES GERADORAS — edite os arrays para mudar preços
+   ====================================================== */
+
+/**
+ * Gera botões em passos fixos.
+ * @param {number} precoInicial – preço do primeiro item
+ * @param {number} incremento – quanto o preço aumenta a cada passo
+ * @param {number} max – quantidade máxima
+ * @param {string} servico – nome exibido
+ */
+function gerar(precoInicial, incremento, max, servico){
+  let html = '';
+  for(let q = 100, p = precoInicial; q <= max; q += 50, p += incremento){
+    html += `<button class="add-btn" data-servico="${servico}" data-qtd="${q}" data-preco="${p.toFixed(2)}">
+               Adicionar ao Carrinho – ${q} por R$ ${p.toFixed(2)}
+             </button><br>`;
   }
-  return lista;
+  return html;
 }
 
-function gerarListaBrasileiros() {
-  let lista = "";
-  let p = 3.00;
-  for(let q = 100; q <= 2000; q += 100, p += 1.50) {
-    lista += `<button class='add-btn' data-servico="Seguidores Brasileiros" data-qtd="${q}" data-preco="${p.toFixed(2)}">Adicionar ao Carrinho - ${q} por R$ ${p.toFixed(2)}</button><br>`;
-  }
-  return lista;
+/* ------- Seguidores Brasileiros c/ Garantia (NOVOS PREÇOS) ------- */
+function gerarBrasileirosGarantia(){
+  /* Edite aqui se precisar alterar as faixas ou os preços */
+  const faixas = [
+    {q:100, p:2.50},
+    {q:200, p:3.50},
+    {q:300, p:4.50},
+    {q:400, p:5.50},
+    {q:500, p:6.50}
+  ];
+  let html = '';
+  faixas.forEach(f => {
+    html += `<button class="add-btn" data-servico="Seguidores Brasileiros c/ Garantia" data-qtd="${f.q}" data-preco="${f.p.toFixed(2)}">
+               Adicionar ao Carrinho – ${f.q} por R$ ${f.p.toFixed(2)}
+             </button><br>`;
+  });
+  return html;
 }
 
-function gerarListaSemGarantia() {
-  let lista = "";
-  for(let q = 100, p = 1.50; q <= 2000; q += 50, p += 0.50) {
-    lista += `<button class='add-btn' data-servico="Seguidores Mundial Sem Garantia" data-qtd="${q}" data-preco="${p.toFixed(2)}">Adicionar ao Carrinho - ${q} por R$ ${p.toFixed(2)}</button><br>`;
+/* ------- Seguidores Mundial Sem Garantia ------- */
+function gerarSemGarantia(){
+  let html = '';
+  for(let q = 100, p = 1.50; q <= 2000; q += 50, p += 0.50){
+    html += `<button class="add-btn" data-servico="Seguidores Mundial Sem Garantia" data-qtd="${q}" data-preco="${p.toFixed(2)}">
+               Adicionar ao Carrinho – ${q} por R$ ${p.toFixed(2)}
+             </button><br>`;
   }
-  return lista;
+  return html;
 }
 
-function gerarViews() {
-  let precos = [1.00,1.30,1.80,2.30,2.80,3.30,3.80,4.30,4.80,5.30];
-  let lista = "";
-  for(let i = 0, q = 1000; i < 10; i++, q += 1000) {
-    lista += `<button class='add-btn' data-servico="Views TikTok" data-qtd="${q}" data-preco="${precos[i].toFixed(2)}">Adicionar ao Carrinho - ${q} por R$ ${precos[i].toFixed(2)}</button><br>`;
+/* ------- Views TikTok (preços específicos) ------- */
+function gerarViews(){
+  const precos=[1.00,1.30,1.80,2.30,2.80,3.30,3.80,4.30,4.80,5.30];
+  let html='';
+  for(let i=0,q=1000;i<precos.length;i++,q+=1000){
+    html+=`<button class="add-btn" data-servico="Views TikTok" data-qtd="${q}" data-preco="${precos[i].toFixed(2)}">
+             Adicionar ao Carrinho – ${q} por R$ ${precos[i].toFixed(2)}
+           </button><br>`;
   }
-  return lista;
+  return html;
 }
 
-function gerarSeguidoresTikTok() {
-  let precos = [2.50, 4.00, 5.00, 6.00, 7.00, 8.00, 8.50, 9.50, 10.50, 11.50];
-  let lista = "";
-  let precoAtual = 11.50;
-  for(let i = 0, q = 100; q <= 2000; q += 100, i++) {
-    let preco = i < precos.length ? precos[i] : (precoAtual += 1.00);
-    lista += `<button class='add-btn' data-servico="Seguidores TikTok" data-qtd="${q}" data-preco="${preco.toFixed(2)}">Adicionar ao Carrinho - ${q} por R$ ${preco.toFixed(2)}</button><br>`;
+/* ------- Seguidores TikTok (preços específicos) ------- */
+function gerarSeguidoresTikTok(){
+  const precos=[2.50,4.00,5.00,6.00,7.00,8.00,8.50,9.50,10.50,11.50];
+  let html='';
+  let extra=11.50;                       // valor a partir de 1100+
+  for(let i=0,q=100;q<=2000;q+=100,i++){
+    const preco=i<precos.length?precos[i]:(extra+=1.00);
+    html+=`<button class="add-btn" data-servico="Seguidores TikTok" data-qtd="${q}" data-preco="${preco.toFixed(2)}">
+             Adicionar ao Carrinho – ${q} por R$ ${preco.toFixed(2)}
+           </button><br>`;
   }
-  return lista;
+  return html;
 }
 
-const categorias = {
-  "cat-insta": gerar(1.00, 0.30, 2000, "Curtidas Instagram"),
-  "cat-tiktok": gerar(1.00, 0.30, 2000, "Curtidas TikTok"),
-  "cat-br": gerarListaBrasileiros(),
-  "cat-mundial": gerar(2.00, 0.50, 2000, "Seguidores Mundial com Garantia"),
-  "cat-sem": gerarListaSemGarantia(),
-  "cat-views": gerarViews(),
-  "cat-tiktok-seguidores": gerarSeguidoresTikTok()
+/* ======================================================
+   INJETANDO LISTAS NAS DIVs DE CADA CATEGORIA
+   ====================================================== */
+const categorias={
+  'cat-insta'            : gerar(1.00,0.30,2000,'Curtidas Instagram'),
+  'cat-tiktok'           : gerar(1.00,0.30,2000,'Curtidas TikTok'),
+  'cat-br-garantia'      : gerarBrasileirosGarantia(),
+  'cat-mundial'          : gerar(2.00,0.50,2000,'Seguidores Mundial com Garantia'),
+  'cat-sem'              : gerarSemGarantia(),
+  'cat-views'            : gerarViews(),
+  'cat-tiktok-seguidores': gerarSeguidoresTikTok()
 };
 
-for (let id in categorias) {
-  document.getElementById(id).innerHTML = categorias[id];
+for(const id in categorias){
+  document.getElementById(id).innerHTML=categorias[id];
 }
 
-document.querySelectorAll('.cat-toggle').forEach(btn => {
-  btn.onclick = () => btn.nextElementSibling.classList.toggle('open');
+/* --------- ABRE/FECHA CATEGORIAS --------- */
+document.querySelectorAll('.cat-toggle').forEach(btn=>{
+  btn.onclick=()=>btn.nextElementSibling.classList.toggle('open');
 });
 
-const carrinho = [];
-document.body.addEventListener('click', e => {
-  if (e.target.classList.contains('add-btn')) {
-    let s = e.target.dataset.servico;
-    let q = e.target.dataset.qtd;
-    let p = e.target.dataset.preco;
-    carrinho.push({ s, q, p });
+/* ======================================================
+   LÓGICA DO CARRINHO
+   ====================================================== */
+const carrinho=[];
+
+document.body.addEventListener('click',e=>{
+  if(e.target.classList.contains('add-btn')){
+    const {servico: s, qtd: q, preco: p}=e.target.dataset;
+    carrinho.push({s,q,p});
     atualizarCarrinho();
   }
 });
 
-function atualizarCarrinho() {
-  const ul = document.getElementById('cart-list');
-  ul.innerHTML = '';
-  let total = 0;
-  carrinho.forEach(item => {
-    ul.innerHTML += `<li>${item.s} - ${item.q} - R$ ${item.p}</li>`;
-    total += parseFloat(item.p);
+function atualizarCarrinho(){
+  const ul=document.getElementById('cart-list');
+  ul.innerHTML='';
+  let total=0;
+  carrinho.forEach(item=>{
+    ul.innerHTML+=`<li>${item.s} – ${item.q} – R$ ${item.p}</li>`;
+    total+=parseFloat(item.p);
   });
-  document.getElementById('cart-total').innerText = `Total: R$ ${total.toFixed(2)}`;
+  document.getElementById('cart-total').innerText=`Total: R$ ${total.toFixed(2)}`;
 }
 
-document.getElementById('login-btn').onclick = () => {
-  let nome = document.getElementById('login-name').value.trim();
-  if (nome) {
-    document.getElementById('cliente-nome').value = nome;
-    document.getElementById('login-overlay').style.display = 'none';
+/* --------- LOGIN --------- */
+document.getElementById('login-btn').onclick=()=>{
+  const nome=document.getElementById('login-name').value.trim();
+  if(nome){
+    document.getElementById('cliente-nome').value=nome;
+    document.getElementById('login-overlay').style.display='none';
   }
-}
+};
 
-document.getElementById('order-form').onsubmit = e => {
+/* --------- ENVIO DO PEDIDO --------- */
+document.getElementById('order-form').onsubmit=e=>{
   e.preventDefault();
-  let nome = document.getElementById('cliente-nome').value;
-  let total = 0;
-  carrinho.forEach(i => total += parseFloat(i.p));
-  let msg = `Olá, sou ${nome} e quero:\n`;
-  carrinho.forEach(i => {
-    msg += `- ${i.s}: ${i.q} unidades por R$ ${i.p}\n`;
+  const nome=document.getElementById('cliente-nome').value;
+  let total=0;
+  carrinho.forEach(i=>total+=parseFloat(i.p));
+  let msg=`Olá, sou ${nome} e quero:\n`;
+  carrinho.forEach(i=>{
+    msg+=`- ${i.s}: ${i.q} unidades por R$ ${i.p}\n`;
   });
-  msg += `\nTotal: R$ ${total.toFixed(2)}`;
-  window.open(`https://wa.me/5511950409879?text=${encodeURIComponent(msg)}`, '_blank');
+  msg+=`\nTotal: R$ ${total.toFixed(2)}`;
+  window.open(`https://wa.me/5511950409879?text=${encodeURIComponent(msg)}`,'_blank');
 };
 </script>
 </body>
